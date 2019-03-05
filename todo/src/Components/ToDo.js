@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 // set up styled components for strikethrough!
 
 class ToDo extends Component {
+    constructor(props){
+        super(props);
+
+        
+        console.log(this.props.todo);
+    }
+
 
     render() {
         return( 

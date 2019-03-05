@@ -6,9 +6,13 @@ import {addToDo, toggleToDo, removeCompleted} from "../Actions";
 
 class ToDoList extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log(this.props.list);
 
+        console.log(this.props.addToDo);
+        console.log(this.props.removeCompleted);
+        console.log(this.props.toggleToDo);
         this.state = {
             text: ""
         }
@@ -35,7 +39,7 @@ class ToDoList extends Component {
 
             <div className="ToDoList">
             {
-                this.props.list.map((todo, index) => {
+                this.props.list.map((todo,index) => {
                     <ToDo todo={todo} toggle={() => this.toggle(index)}/>
                 })
             }
