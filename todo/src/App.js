@@ -6,14 +6,13 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import ToDoLog from "./Reducers/"
 
-const store = createStore(ToDoLog);
+import ToDoList from "./Components/ToDoList"
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-      </div>
+      <ToDoList/>
     );
   }
 }
