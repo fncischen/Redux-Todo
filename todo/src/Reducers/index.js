@@ -18,7 +18,15 @@ const initialState = {
 export default (state = initialState, action) => {
     switch(action.type) {
         case TOGGLE:
-            return 
+            if (state.list[action.index].completed == false) {
+
+                return Object.assign({}, state, state.list[action.index].completed = true)
+            
+            } else if (state.list[action.index].completed == true) {
+                
+                return Object.assign({}, state, state.list[action.index].completed = false)
+            
+            }
         case ADD_TODO: 
             return Object.assign({}, state, {item: action.text, completed: false});
         case REMOVE_COMPLETED:

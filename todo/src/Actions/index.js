@@ -25,7 +25,7 @@ export function toggleToDo(index) {
     return { type: TOGGLE_TODO, index: index, completed: false}
 }
 
-export function removeCompleted(indices) {
-    return { type: REMOVE_COMPLETED, indices: indices}
+export function removeCompleted() {
+    return { type: REMOVE_COMPLETED}
 }
   
