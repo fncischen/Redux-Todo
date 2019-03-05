@@ -4,6 +4,24 @@ import { connect } from 'react-redux';
 import ToDo from "./ToDo"
 
 class ToDoList extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            text: ""
+        }
+    }
+
+    toggle = e => {
+
+    }
+
+    addToDo = e => {
+        e.preventDefault();
+        this.props.addToDo(this.state)
+    }
+
     render() {
         return(
 
@@ -12,7 +30,7 @@ class ToDoList extends Component {
             <div className="ToDoList">
             {
                 this.props.list.map(todo => {
-                    <ToDo todo={todo} completed={this.props.completed}/>
+                    <ToDo todo={todo} toggle={this.toggle}/>
                 })
             }
             </div>
@@ -20,7 +38,15 @@ class ToDoList extends Component {
 
             <div className="ToDoForm">
             
-            <button onClick={this.props.removeCompleted}> Remove Completed Items </button>
+                <form onSubmit={this.addToDo} >
+
+                    <input type="text" name="text" onChange={this.handleChanges}></input> 
+
+                    <button type="submit">Submit</button>
+                
+                </form>
+
+                <button onClick={this.props.removeCompleted}> Remove Completed Items </button>
 
             </div>
 
@@ -35,4 +61,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{add,completed,removeCompleted})(ToDoList); 
+export default connect(mapStateToProps,{addToDo,completed,removeCompleted,handleChanges})(ToDoList); 
