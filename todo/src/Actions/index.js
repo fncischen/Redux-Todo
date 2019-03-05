@@ -1,8 +1,6 @@
 // a library of actions that our Reducer has to decide what to do with
 // after the store is dispatching the actions from our React Component [view];
 
-export const TOGGLE = 'TOGGLE';
-
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = "TOGGLE_DODO";
 

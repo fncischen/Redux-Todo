@@ -14,8 +14,7 @@ class ToDoList extends Component {
         }
     }
 
-    toggle = (e, index) => {
-        e.preventDefault();
+    toggle = (index) => {
         this.props.toggleToDo(index);
     }
 
@@ -25,7 +24,7 @@ class ToDoList extends Component {
     }
 
     handleChanges = (e) => {
-        console.log("text":, e.target.value);
+        console.log("text", e.target.value);
         this.setState({text: e.target.value})
     }
 
