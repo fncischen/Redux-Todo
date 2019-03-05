@@ -14,17 +14,19 @@ class ToDoList extends Component {
         }
     }
 
-    toggle = (e, todo) => {
-
-    }
-
-    addToDo = e => {
+    toggle = (e, index) => {
         e.preventDefault();
-        this.props.addToDo(this.state.text)
+        this.props.toggleToDo(index);
     }
 
-    handleChanges = e => {
+    addToDo = (e) => {
+        e.preventDefault();
+        this.props.addToDo(this.state.text);
+    }
 
+    handleChanges = (e) => {
+        console.log("text":, e.target.value);
+        this.setState({text: e.target.value})
     }
 
     render() {
@@ -34,8 +36,8 @@ class ToDoList extends Component {
 
             <div className="ToDoList">
             {
-                this.props.list.map(todo => {
-                    <ToDo todo={todo} toggle={() => this.toggle(todo)}/>
+                this.props.list.map((todo, index) => {
+                    <ToDo todo={todo} toggle={() => this.toggle(index)}/>
                 })
             }
             </div>
@@ -45,7 +47,7 @@ class ToDoList extends Component {
             
                 <form onSubmit={this.addToDo} >
 
-                    <input type="text" name="text" onChange={this.handleChanges}></input> 
+                    <input type="text" onChange={this.handleChanges}></input> 
 
                     <button type="submit">Submit</button>
                 
