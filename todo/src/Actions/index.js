@@ -21,8 +21,8 @@ export function addToDo(text) {
     return { type: ADD_TODO, text }
 }
   
-export function toggleToDo(index) {
-    return { type: TOGGLE_TODO, index: index, completed: false}
+export function toggleToDo(i) {
+    return { type: TOGGLE_TODO, index: i}
 }
 
 export function removeCompleted() {

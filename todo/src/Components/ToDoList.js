@@ -10,11 +10,11 @@ class ToDoList extends Component {
         super(props);
         console.log(this.props.list);
 
-        console.log(this.props.addToDo);
-        console.log(this.props.removeCompleted);
-        console.log(this.props.toggleToDo);
+        console.log("add to do", this.props.addToDo);
+        console.log("remove completed", this.props.removeCompleted);
+        console.log("toggle to do", this.props.toggleToDo);
         this.state = {
-            text: ""
+             text: ""
         }
     }
 
@@ -33,14 +33,16 @@ class ToDoList extends Component {
     }
 
     render() {
+        console.log("Rerendering list", this.props.list);
         return(
 
         <div className="container">
 
             <div className="ToDoList">
             {
+                
                 this.props.list.map((todo,index) => {
-                    <ToDo todo={todo} toggle={() => this.toggle(index)}/>
+                    return <ToDo todo={todo} toggle={() => this.toggle(index)}/>
                 })
             }
             </div>
@@ -67,7 +69,8 @@ class ToDoList extends Component {
 
 const mapStateToProps = state => {
     return {
-        list: state.list 
+        list: state.list,
+        text: state.text 
     }
 }
 
